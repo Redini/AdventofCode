@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Document</title>
+</head>
+
+<body>
+
+  <p>Adventowy kalentarz pozdrawiam cieplutko</p>
+<p>You need to run liveserver in order to run this code properly</p>
+<p>Everything you need is in console</p>
+
+
+  <script>
+// kurwa is the first part 
+// kurwa1 is the second part
+    var inputStr
+    function loadNum() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        inputStr = this.responseText.toString();
+      }
+      xhttp.open("GET", "numbers.txt", true);
+      xhttp.send();
+    }
+    // Ajax kurwa jebana wpierdala mi cyferki
+    loadNum();
+     setTimeout(kurwa, 1000);
+     setTimeout(kurwa1, 2000)
+
+    function kurwa() {
+
+      var input = inputStr.split('\n').map(Number);
+      var ilosc = [];
+      var ilosc2 = [];
+
+      for (let i = 1; i < input.length; i++) {
+
+        if (input[i - 1] > input[i]) {
+
+          // console.log(input[i - 1] + " decreased")
+          ilosc2.push(input[i - 1]);
+
+
+        } else {
+          // console.log(input[i] + " increased")
+          ilosc.push(input[i]);
+        }
+
+
+      }
+
+      console.log(ilosc.length)
+      
+    }
+        function kurwa1() {
+
+      var input = inputStr.split('\n').map(Number);
+      
+      var counter = 0;
+      var counter1 = 0
+
+      for (let i = 0; i < input.length-3; i++) {
+        var arr1 = input.slice(i, i+3)
+        var arr2 = input.slice(i+1, i+4)
+        var arr1Sum = arr1[0] + arr1[1] + arr1[2]
+        var arr2Sum = arr2[0] + arr2[1] + arr2[2]
+        if (arr1Sum < arr2Sum) {
+          // console.log(arr1Sum + "is smaller than" + arr2Sum)
+          counter++
+
+
+        } else {
+          // console.log(arr1Sum + "is bigger than" + arr2Sum)
+          counter1++
+        }
+
+
+      }
+
+      console.log(counter)
+    }
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
